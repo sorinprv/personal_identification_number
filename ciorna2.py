@@ -21,8 +21,12 @@ def change(cnp):
 
 
 class cnp_reader:
+    # def character_check(self):
+    #     list_cnp = []
+    #     for i in cnp_test:
 
-    def check(self):
+
+    def length_check(self):
         # self.cnp = cnp
         if len(cnp) == 13:
             return (f"the cnp has a 13-digit number"
@@ -38,5 +42,5 @@ class cnp_reader:
         return ("all good")
 
 
-abc = cnp_reader.check(cnp)
+abc = cnp_reader.length_check(cnp)
 print(abc)
