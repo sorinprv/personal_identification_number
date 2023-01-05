@@ -1,0 +1,108 @@
+1 pentru persoanele de sex masculin născute între anii 1900 - 1999
+2 pentru persoanele de sex feminin născute între anii 1900 - 1999
+3 pentru persoanele de sex masculin născute între anii 1800 - 1899
+4 pentru persoanele de sex feminin născute între anii 1800 - 1899
+5 pentru persoanele de sex masculin născute între anii 2000 - 2099
+6 pentru persoanele de sex feminin născute între anii 2000 - 2099
+7 pentru persoanele rezidente, de sex masculin[6]
+8 pentru persoanele rezidente, de sex feminin[6]
+
+
+
+Componenta AA este formată din ultimele 2 cifre ale anului nașterii
+
+
+
+Componenta LL este formată din luna nașterii, cu valori între 01 și 12
+
+
+
+Componenta ZZ este formată din ziua nașterii, cu valori între 01 și 28, 29, 30 sau 31, după caz
+
+
+
+Componenta JJ reprezintă județul sau sectorul în care s-a născut persoana, ori în care avea
+            domiciliul sau reședința la momentul acordării C.N.P.[8], conform nomenclatorului SIRUTA.
+
+
+
+                                        Cod	Județ
+01	Alba
+02	Arad
+03	Argeș
+04	Bacău
+05	Bihor
+06	Bistrița-Năsăud
+07	Botoșani
+08	Brașov
+09	Brăila
+10	Buzău
+11	Caraș-Severin
+12	Cluj
+13	Constanța
+14	Covasna
+15	Dâmbovița
+16	Dolj
+17	Galați
+18	Gorj
+19	Harghita
+20	Hunedoara
+21	Ialomița
+22	Iași
+23	Ilfov
+24	Maramureș
+25	Mehedinți
+26	Mureș
+27	Neamț
+28	Olt
+29	Prahova
+30	Satu Mare
+31	Sălaj
+32	Sibiu
+33	Suceava
+34	Teleorman
+35	Timiș
+36	Tulcea
+37	Vaslui
+38	Vâlcea
+39	Vrancea
+40	București
+41	București - Sector 1
+42	București - Sector 2
+43	București - Sector 3
+44	București - Sector 4
+45	București - Sector 5
+46	București - Sector 6
+51	Călărași
+52	Giurgiu
+47	Bucuresti - Sector 7 (desfiintat)
+48	Bucuresti - Sector 8 (desfiintat)
+
+
+
+Componenta NNN reprezintă un număr secvențial ( cuprins între 001 și 999 ), repartizat pe puncte de atribuire,
+            prin care se diferențiază persoanele de același sex, născute în același loc și cu aceeași dată de naștere
+
+
+
+Componenta C este formată dintr-o cifră de control, care permite depistarea eventualelor erori de înlocuire
+            sau inversare a cifrelor din componența C.N.P.
+
+
+
+                                        Validare
+Validarea unui C.N.P. constă în calcularea componentei C și compararea acesteia cu valoarea primită
+a aceleiași componente. Dacă acestea sunt identice, înseamnă că C.N.P. verificat este valid.
+
+
+
+Calcularea componentei C se face folosind constanta "279146358279", după cum urmează:
+
+fiecare cifră din primele 12 cifre ale C.N.P. este înmulțită cu corespondentul său din constantă
+rezultate sunt însumate
+și totalul se împarte la 11
+dacă restul împărțirii este mai mic de 10, acela reprezintă valoarea componentei C
+dacă restul împărțirii este 10, valoarea componentei C este 1
+
+
+sursa:https://ro.wikipedia.org/wiki/Cod_numeric_personal_(Rom%C3%A2nia)
