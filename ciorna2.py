@@ -3,13 +3,15 @@ from cnp import cnp, cnp_test
 cnp = list(cnp)
 cnp_test = list(cnp_test)
 
-
 # def startprocess(self, rows, number):
 #     for i in range(1, rows + 1):
 #         for j in range(1, i + 1):
 #             return (number, end="")
 #             number -= 1
 #     return ()
+"""change elements from string to integer"""
+
+
 def change(cnp):
     list = []
     for i in cnp:
