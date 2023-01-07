@@ -1,7 +1,13 @@
-from cnp import cnp_test
+from cnp import cnp, cnp_test
 from dictionaries_liste import alfabet
 
-
+# def startprocess(self, rows, number):
+#     for i in range(1, rows + 1):
+#         for j in range(1, i + 1):
+#             return (number, end="")
+#             number -= 1
+#     return ()
+"""change elements from string to integer"""
 class Check_cnp():
     def __init__(self, cnp_test):
         self.cnp_test = cnp_test
@@ -15,6 +21,8 @@ class Check_cnp():
             for b in list:
                 if a == b:
                     list.remove(b)
+                # else:
+                #     print("nu e la fel")
         list_cnp = []
         for z in list:
             z = int(z)
@@ -30,7 +38,7 @@ class Check_cnp():
         elif len(user.change()) < 13:
             return (f"cnp has minus characters {user.change()}")
         else:
-            return ("you did something wrong -- def length_check")
+            return ("you did something wrong -- def check")
 
 
 user = Check_cnp(cnp_test)

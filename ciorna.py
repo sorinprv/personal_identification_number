@@ -1,45 +1,42 @@
-# def startprocess(self, rows, number):
-#     for i in range(1, rows + 1):
-#         for j in range(1, i + 1):
-#             print(number, end=" ")
-#             number -= 1
-#         print()
-#
-#
-# startprocess(1, 4, 10)
 from cnp import cnp_test
 from dictionaries_liste import alfabet
-
-list_cnp = []
-list_cnp_test = []
-# for i in cnp_test:
-#     if i == alfabet[1]:
-#         list_cnp.append(i)
-#     else:
-#         print("cnp valabil")
-# print(list_cnp)
-cnp_n = 0
-cnp_test_n = 0
-alfabet_n = 0
-
-# while cnp_n == len(cnp):
-#     while alfabet_n == len(alfabet):
-#         if cnp[cnp_n] == alfabet[alfabet_n]:
-#             cnp.pop[cnp_n]
-#         alfabet_n += 1
-#     cnp_n += 1
-# print(cnp)
+from work import change
 
 
-for i in cnp_test:
-    list_cnp_test.append(i)
-list_cnp_test = cnp_test
-print(cnp_test)
-while cnp_test_n != len(cnp_test):
-    while alfabet_n != len(alfabet):
-        if cnp_test[cnp_test_n] == alfabet[alfabet_n]:
-            # cnp_test.pop(cnp_test_n)
-            cnp_test.remove(cnp_test[cnp_test_n])
-        alfabet_n += 1
-    cnp_test_n += 1
-print(cnp_test, len(cnp_test))
+class Cnp_reader:
+    def __init__(self, cnp):
+        self.cnp = cnp
+
+    def change(self):
+        # self.cnp_test = cnp_test
+        list = []
+        for i in cnp_test:
+            list.append(i)
+        for a in alfabet:
+            for b in list:
+                if a == b:
+                    list.remove(b)
+                # else:
+                #     print("nu e la fel")
+        list_cnp = []
+        for z in list:
+            z = int(z)
+            list_cnp.append(z)
+        return list_cnp
+
+    def length_check(self, cnp):
+        self.cnp = change
+        if len(change(cnp)) == 13:
+            return (f"the cnp has a 13-digit number"
+                    f"{change(cnp)}")
+        elif len(change(cnp)) > 13:
+            return (f"cnp has extra characters {change(cnp)}")
+        elif len(change(cnp)) < 13:
+            return (f"cnp has minus characters {change(cnp)}")
+        else:
+            return ("you did something wrong -- def check")
+
+
+abc = Cnp_reader.length_check(cnp_test)
+# abc = Cnp_reader.change(cnp_test)
+print(abc)
