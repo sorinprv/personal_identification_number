@@ -1,3 +1,4 @@
-from ciorna2 import abc
+from cnp import cnp
+from work import total
 
-print(abc)
+print(total(cnp))

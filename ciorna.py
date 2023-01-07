@@ -1,45 +1,49 @@
-# def startprocess(self, rows, number):
-#     for i in range(1, rows + 1):
-#         for j in range(1, i + 1):
-#             print(number, end=" ")
-#             number -= 1
-#         print()
-#
-#
-# startprocess(1, 4, 10)
-from cnp import cnp_test
-from dictionaries_liste import alfabet
+from cnp import cnp
+from dictionaries_liste import alfabet, S
 
+q = cnp
+"""character_check"""
+list = []
+for i in q:
+    list.append(i)
+for a in alfabet:
+    for b in list:
+        if a == b:
+            list.remove(b)
 list_cnp = []
-list_cnp_test = []
-# for i in cnp_test:
-#     if i == alfabet[1]:
-#         list_cnp.append(i)
-#     else:
-#         print("cnp valabil")
-# print(list_cnp)
-cnp_n = 0
-cnp_test_n = 0
-alfabet_n = 0
+for z in list:
+    z = int(z)
+    list_cnp.append(z)
+print(list_cnp)
 
-# while cnp_n == len(cnp):
-#     while alfabet_n == len(alfabet):
-#         if cnp[cnp_n] == alfabet[alfabet_n]:
-#             cnp.pop[cnp_n]
-#         alfabet_n += 1
-#     cnp_n += 1
-# print(cnp)
+"""length_check"""
+if len(list_cnp) == 13:
+    print(f"the cnp has a 13-digit number{list_cnp}")
+elif len(list_cnp) > 13:
+    print(f"cnp has extra characters {list_cnp}")
+elif len(list_cnp) < 13:
+    print(f"cnp has minus characters {list_cnp}")
+else:
+    print("you did something wrong -- def length_check")
 
+"""decode cnp gender"""
+print(list)
 
-for i in cnp_test:
-    list_cnp_test.append(i)
-list_cnp_test = cnp_test
-print(cnp_test)
-while cnp_test_n != len(cnp_test):
-    while alfabet_n != len(alfabet):
-        if cnp_test[cnp_test_n] == alfabet[alfabet_n]:
-            # cnp_test.pop(cnp_test_n)
-            cnp_test.remove(cnp_test[cnp_test_n])
-        alfabet_n += 1
-    cnp_test_n += 1
-print(cnp_test, len(cnp_test))
+if list[0] == '1':
+    print(S['1'])
+elif list[0] == '2':
+    print(S['2'])
+elif list[0] == '3':
+    print(S['3'])
+elif list[0] == '4':
+    print(S['4'])
+elif list[0] == '5':
+    print(S['5'])
+elif list[0] == '6':
+    print(S['6'])
+elif list[0] == '7':
+    print(S['7'])
+elif list[0] == '8':
+    print(S['8'])
+else:
+    print("error decode cnp gender")
