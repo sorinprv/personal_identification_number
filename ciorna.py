@@ -7,16 +7,16 @@ from dictionaries_liste import alfabet, S, AA, JJ
 
 
 def character_check(var):
-    list = []
+    li = []
     for i in var:
-        list.append(i)
+        li.append(i)
     for a in alfabet:
         for b in var:
             if a == b:
-                list.remove(b)
+                li.remove(b)
             elif a == b and a != b:
                 print("you did something wrong -- def character_check")
-    return list
+    return li
 
 
 """list integer"""
@@ -162,15 +162,14 @@ def safety_number(var):
 
 
 def total(var):
-    return (f"def 1: {character_check2(var)}\n"
-            f"def 2: {length_check(var)}\n"
-            f"def sex {gender(var)}\n"
-            f"def an {year_of_birth(var)}\n"
-            f"def luna {birth_month(var)}\n"
-            f"def zi nastere {birthday(var)}\n"
-            f"def judet {county_sector(var)}\n"
-            f"def al catelea nascut {birth_number(var)}\n"
-            f"def siguranta {safety_number(var)}\n")
+    return (f"def check if the cnp number has 13 characters:    {length_check(var)}\n"
+            f"def gender:                                       {gender(var)}\n"
+            f"def year_of_birth:                                {year_of_birth(var)}\n"
+            f"def birth_month:                                  {birth_month(var)}\n"
+            f"def birthday:                                     {birthday(var)}\n"
+            f"def county_sector:                                {county_sector(var)}\n"
+            f"def birth_number:                                 {birth_number(var)}\n"
+            f"def safety_number:                                {safety_number(var)}\n")
 
 
 print(total(cnp))
