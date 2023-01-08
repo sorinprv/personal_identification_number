@@ -1,10 +1,7 @@
 import math
 
-from cnp import constant, cnp_test, cnp
+from cnp import constant, cnp
 from dictionaries_liste import alfabet, S, AA, JJ
-
-n = cnp
-n1 = cnp_test
 
 """list string"""
 
@@ -21,8 +18,6 @@ def character_check(var):
                 print("you did something wrong -- def character_check")
     return list
 
-
-# print(character_check(n)[0])
 
 """list integer"""
 
@@ -41,12 +36,7 @@ def character_check2(var):
     return r2
 
 
-# print(character_check(n))
-# print(character_check(n1))
-
-
-# print(character_check1(character_check(n)))
-# print(character_check1(character_check(n1)))
+"""check if the cnp number has 13 characters"""
 
 
 def length_check(var):
@@ -58,7 +48,10 @@ def length_check(var):
     elif len(character_check2(var)) < 13:
         return f"cnp has minus characters {character_check2(var)}"
     else:
-        print("you did something wrong -- def length_check")
+        return "you did something wrong -- def length_check"
+
+
+"""gender"""
 
 
 def gender(var):
@@ -85,26 +78,38 @@ def gender(var):
     elif nr == 8:
         return S['8']
     else:
-        "altceva"
+        "you did something wrong -- def gender"
     return var
 
 
-def an_nastere(var):
+"""year of birth"""
+
+
+def year_of_birth(var):
     var = S['1'][-4] + S['1'][-3] + var[1] + var[2]
     return var
 
 
-def luna_nastere(var):
+"""birth month"""
+
+
+def birth_month(var):
     var = var[3] + var[4]
     return var
 
 
-def zi_nastere(var):
+"""birthday"""
+
+
+def birthday(var):
     var = var[5] + var[6]
     return var
 
 
-def judet(var):
+"""county & sector"""
+
+
+def county_sector(var):
     var = var[7] + var[8]
     var = str(var)
     for i in JJ:
@@ -114,13 +119,19 @@ def judet(var):
     return var
 
 
-def nastere(var):
+"""it is noted which child you were born on that day"""
+
+
+def birth_number(var):
     var = var[9] + var[10] + var[11]
     var = int(var)
     return var
 
 
-def numar_siguranta(var):
+"""safety number"""
+
+
+def safety_number(var):
     var = character_check1(var)
     security = var[-1]
     del var[-1]
@@ -140,13 +151,13 @@ def numar_siguranta(var):
         if s == security:
             return "cnp valid"
         elif s != security:
-            return "cnp corupt"
+            return "corrupt cnp"
     elif s > 9:
         s = 1
         if s == security:
             return "cnp valid"
         elif s != security:
-            return "cnp corupt"
+            return "corrupt cnp"
     return var
 
 
@@ -154,12 +165,12 @@ def total(var):
     return (f"def 1: {character_check2(var)}\n"
             f"def 2: {length_check(var)}\n"
             f"def sex {gender(var)}\n"
-            f"def an {an_nastere(var)}\n"
-            f"def luna {luna_nastere(var)}\n"
-            f"def zi nastere {zi_nastere(var)}\n"
-            f"def judet {judet(var)}\n"
-            f"def al catelea nascut {nastere(var)}\n"
-            f"def siguranta {numar_siguranta(var)}\n")
+            f"def an {year_of_birth(var)}\n"
+            f"def luna {birth_month(var)}\n"
+            f"def zi nastere {birthday(var)}\n"
+            f"def judet {county_sector(var)}\n"
+            f"def al catelea nascut {birth_number(var)}\n"
+            f"def siguranta {safety_number(var)}\n")
 
 
 print(total(cnp))
