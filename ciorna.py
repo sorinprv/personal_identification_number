@@ -177,14 +177,19 @@ import calendar
 from datetime import date
 from random import randint
 
+in_this_moment = date.today()
+print(f"in_this_moment {in_this_moment}")
+
 
 def year_genaration(var):
     year = randint(1800, var - 18)
     return year
 
 
-generate_year = year_genaration(date.today().year)
-print(generate_year)
+generate_year = year_genaration(in_this_moment.year)
+
+
+# print(generate_year)
 
 
 def month_genaration():
@@ -192,7 +197,7 @@ def month_genaration():
     return var
 
 
-print(month_genaration())
+# print(month_genaration())
 
 
 def setting_number_of_days(year, month):
@@ -201,14 +206,16 @@ def setting_number_of_days(year, month):
 
 setting_number_of_days = setting_number_of_days(generate_year, month_genaration())
 setting_number_of_days = list(setting_number_of_days)
-print(type(setting_number_of_days))
+
+
+# print(type(setting_number_of_days))
 
 
 def day_genaration():
     return randint(1, setting_number_of_days[1])
 
 
-print(day_genaration())
+# print(day_genaration())
 
 
 def date_genaration():
@@ -225,3 +232,32 @@ print(date_genaration())
 # calendar.setfirstweekday(0)
 #
 # print(calendar.leapdays(1800, 2005))
+
+d = 9
+m = 1
+y = 2005
+
+if d > in_this_moment.day and m > in_this_moment.month and y >= in_this_moment.year - 18:
+    print("e minor")
+elif d == in_this_moment.day and m == in_this_moment.month and y == in_this_moment.year - 18:
+    print("verifica ora")
+else:
+    print("e major")
+
+d = randint(1, 10)
+m = randint(1, 12)
+y = randint(2004, 2005)
+print(d, m, y)
+while d > in_this_moment.day and m > in_this_moment.month and y >= in_this_moment.year - 18:
+    print(date_genaration())
+
+# date_genaration() == list(day_genaration())
+print(type(date_genaration()))
+import datetime
+
+start = datetime.datetime.strptime("01-01-1800", "%d-%m-%Y")
+end = datetime.datetime.strptime("06-01-1800", "%d-%m-%Y")
+date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days)]
+
+for date in date_generated:
+    print(date.strftime("%d-%m-%Y"))
