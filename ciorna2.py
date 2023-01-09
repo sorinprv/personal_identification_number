@@ -3,10 +3,17 @@ from random import randint
 
 from dictionaries_liste import S
 
-current_date = date.today()
-year_now = current_date.year
-
 sex = randint(1, 6)
+
+
+def major(var):
+    date = var.day, var.month, var.year - 18
+    return date
+
+
+major = major(date.today())
+major = list(major)
+print(major, type(major))
 
 
 def year(var):
@@ -39,7 +46,28 @@ def year_complete(var):
     return year, year_cnp
 
 
-print(year_complete((year(sex))))
+year_complete = int(year_complete((year(sex)))[0])
+
+an_major = major[2]
+an_cnp = year_complete
+print(year_complete)
+print(an_major > an_cnp)
+"""daca e bun nu intra, daca nu e bun nu intra."""
+new_an_cnp = 2006
+while an_major < an_cnp:
+    while new_an_cnp > an_major:
+        def year_complete(var):
+            year1 = (var[-4])
+            year2 = (var[-3])
+            year3 = str(randint(0, 9))
+            year4 = str(randint(0, 9))
+
+            year = year1 + year2 + year3 + year4
+            year = int(year)
+            year_cnp = year3 + year4
+            return year, year_cnp
+
+print(new_an_cnp)
 
 
 def month():
@@ -56,14 +84,13 @@ def day():
     # day = str(randint(0, 28))
     return day
 
-
-print(day())
-
-
-def date():
-    return f"{day()}/{month()}/{year_complete((year(sex)))[0]}\n" \
-           f"cnp: {sex}" \
-           f"{year_complete(year(sex))[1]}{month()}{day()}"
+# print(day())
 
 
-print(date())
+# def date():
+#     return f"{day()}/{month()}/{year_complete((year(sex)))[0]}\n" \
+#            f"cnp: {sex}" \
+#            f"{year_complete(year(sex))[1]}{month()}{day()}"
+#
+#
+# print(date())
