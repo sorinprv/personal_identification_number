@@ -109,30 +109,31 @@ class Test:
 
     def safety_number(self):
         security = Test(self.code).character_conversion()[-1]
-        del Test(self.code).character_conversion()[-1]
+        list_cnp = Test(self.code).character_conversion()
+        del list_cnp[-1]
         k = constant
         inmultire = []
-        for i in range(0, len(Test(self.code).character_conversion())):
-            inmultire.append(Test(self.code).character_conversion()[i] * k[i])
+        for i in range(0, len(list_cnp)):
+            inmultire.append(list_cnp[i] * k[i])
         s = 0
         for i in inmultire:
             s = s + i
-            s = s / 11
+        s = s / 11
         s = (s - math.floor(s)) * 100
         s = math.floor(s)
         if s <= 9:
             """s=06 => s=6"""
-            s = int(s)
-            if s == security:
-                return "cnp valid"
-            elif s != security:
-                return "corrupt cnp"
+        s = int(s)
+        if s == security:
+            return "cnp valid"
+        elif s != security:
+            return "corrupt cnp"
         elif s > 9:
             s = 1
-            if s == security:
-                return "cnp valid"
-            elif s != security:
-                return "corrupt cnp"
+        if s == security:
+            return "cnp valid"
+        elif s != security:
+            return "corrupt cnp"
 
     def output(self):
         return (f"def check if the cnp number has 13 characters:    {self.length_check()}\n"
@@ -142,8 +143,6 @@ class Test:
                 f"def birthday:                                     {self.birthday()}\n"
                 f"def county_sector:                                {self.county_sector()}\n"
                 f"def birth_number:                                 {self.birth_number()}\n"
-                # f"def safety_number:                                {self.safety_number()}")
-                )
-
+                f"def safety_number:                                {self.safety_number()}")
 
 print(Test(a).output())
