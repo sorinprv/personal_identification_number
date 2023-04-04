@@ -80,12 +80,12 @@ class Test:
     """birth month"""
 
     def birth_month(self):
-        return Test(self.code).character_conversion()[3] + Test(self.code).character_conversion()[4]
+        return str(Test(self.code).character_conversion()[3]) + str(Test(self.code).character_conversion()[4])
 
     """birthday"""
 
     def birthday(self):
-        return Test(self.code).character_conversion()[5] + Test(self.code).character_conversion()[6]
+        return str(Test(self.code).character_conversion()[5]) + str(Test(self.code).character_conversion()[6])
 
     """county & sector"""
 
@@ -100,8 +100,8 @@ class Test:
     """it is noted which child you were born on that day"""
 
     def birth_number(self):
-        number = Test(self.code).character_conversion()[9] + Test(self.code).character_conversion()[10] + \
-                 Test(self.code).character_conversion()[11]
+        number = str(Test(self.code).character_conversion()[9]) + str(Test(self.code).character_conversion()[10]) + \
+                 str(Test(self.code).character_conversion()[11])
         number = int(number)
         return number
 
@@ -133,16 +133,15 @@ class Test:
         if s == security:
             return "cnp valid"
         elif s != security:
-            return "corrupt cnp"
+            return f"corrupt cnp///{security}"
 
     def output(self):
-        return (f"def check if the cnp number has 13 characters:    {self.length_check()}\n"
-                f"def gender:                                       {self.gender()}\n"
-                f"def year_of_birth:                                {self.year_of_birth()}\n"
-                f"def birth_month:                                  {self.birth_month()}\n"
-                f"def birthday:                                     {self.birthday()}\n"
-                f"def county_sector:                                {self.county_sector()}\n"
-                f"def birth_number:                                 {self.birth_number()}\n"
-                f"def safety_number:                                {self.safety_number()}")
+        return (f"Salut, ai introdus in CNP {Test(self.code).character_conversion()}, hai sa-l verificam:\n"
+                f"El ne spune ca esti deci o: {Test(self.code).gender()}.\n"
+                f"Mai precis nascut in data de: {Test(self.code).birthday()}/{Test(self.code).birth_month()}/{Test(self.code).year_of_birth()}.\n"
+                f"Locul tau de nastere fiind: {Test(self.code).county_sector()}.\n"
+                f"Dar mai stim si ca esti al {Test(self.code).birth_number()} nascut in ziua respectiva.\n"
+                f"CNP-ul tau este unul : {self.safety_number()}.")
+
 
 print(Test(a).output())
