@@ -143,5 +143,5 @@ class Test:
                 f"Dar mai stim si ca esti al {Test(self.code).birth_number()} nascut in ziua respectiva.\n"
                 f"CNP-ul tau este unul : {self.safety_number()}.")
 
-
+# a=1840313243724
 print(Test(a).output())
