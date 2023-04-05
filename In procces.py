@@ -121,19 +121,14 @@ class Test:
         s = s / 11
         s = (s - math.floor(s)) * 100
         s = math.floor(s)
-        if s <= 9:
-            """s=06 => s=6"""
-        s = int(s)
-        if s == security:
-            return "cnp valid"
-        elif s != security:
-            return "corrupt cnp"
-        elif s > 9:
+        if s >= 10:
             s = 1
-        if s == security:
-            return "cnp valid"
+            if s == security:
+                return "True"
+        elif s < 10:
+            return "True"
         elif s != security:
-            return f"corrupt cnp///{security}"
+            return "False"
 
     def output(self):
         return (f"Salut, ai introdus in CNP {Test(self.code).character_conversion()}, hai sa-l verificam:\n"
@@ -143,5 +138,7 @@ class Test:
                 f"Dar mai stim si ca esti al {Test(self.code).birth_number()} nascut in ziua respectiva.\n"
                 f"CNP-ul tau este unul : {self.safety_number()}.")
 
-# a=1840313243724
+
+# a = "2220802381161"
+a = "6350805244859"
 print(Test(a).output())
