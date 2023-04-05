@@ -45,7 +45,7 @@ class Test:
     """gender"""
 
     def gender(self):
-        number_gender = Test(self.code).character_conversion()[0]
+        number_gender = self.character_conversion()[0]
         number_gender = int(number_gender)
         if number_gender == 1:
             return S['1']
@@ -67,30 +67,51 @@ class Test:
             "you did something wrong -- def gender"
         return number_gender
 
-    """year of birth"""
+    """residence_number"""
 
-    def year_of_birth(self):
-        y = (Test(self.code).character_conversion()[1])
-        y = str(y)
-        z = (Test(self.code).character_conversion()[2])
-        z = str(z)
-        year = Test(self.code).gender()[-4] + Test(self.code).gender()[-3] + y + z
-        return year
+    def date_birth(self):
+        number_gender = self.character_conversion()
+        if number_gender[0] == 7:
+            return 'Persoană rezidentă, de sex masculin'
+        elif number_gender[0] == 8:
+            return 'Persoană rezidentă, de sex feminin'
+        lista = [1, 2, 3, 4, 5, 6]
+        for i in lista:
+            if number_gender[0] == i:
+                birthday = str(number_gender[5]) + str(number_gender[6])
+                birth_month = str(number_gender[3]) + str(number_gender[4])
+                y = (number_gender[1])
+                y = str(y)
+                z = (number_gender[2])
+                z = str(z)
+                birth_year = self.gender()[-4] + self.gender()[-3] + y + z
+                return f"{birthday}/{birth_month}/{birth_year}"
 
-    """birth month"""
-
-    def birth_month(self):
-        return Test(self.code).character_conversion()[3] + Test(self.code).character_conversion()[4]
-
-    """birthday"""
-
-    def birthday(self):
-        return Test(self.code).character_conversion()[5] + Test(self.code).character_conversion()[6]
+    #
+    # """year of birth"""
+    #
+    # def year_of_birth(self):
+    #     y = (self.character_conversion()[1])
+    #     y = str(y)
+    #     z = (self.character_conversion()[2])
+    #     z = str(z)
+    #     year = self.gender()[-4] + self.gender()[-3] + y + z
+    #     return year
+    #
+    # """birth month"""
+    #
+    # def birth_month(self):
+    #     return str(self.character_conversion()[3]) + str(self.character_conversion()[4])
+    #
+    # """birthday"""
+    #
+    # def birthday(self):
+    #     return str(self.character_conversion()[5]) + str(self.character_conversion()[6])
 
     """county & sector"""
 
     def county_sector(self):
-        location = str(Test(self.code).character_conversion()[7]) + str(Test(self.code).character_conversion()[8])
+        location = str(self.character_conversion()[7]) + str(self.character_conversion()[8])
         for i in JJ:
             if i == location:
                 return JJ[i]
@@ -100,16 +121,16 @@ class Test:
     """it is noted which child you were born on that day"""
 
     def birth_number(self):
-        number = Test(self.code).character_conversion()[9] + Test(self.code).character_conversion()[10] + \
-                 Test(self.code).character_conversion()[11]
+        number = str(self.character_conversion()[9]) + str(self.character_conversion()[10]) + \
+                 str(self.character_conversion()[11])
         number = int(number)
         return number
 
     """safety number"""
 
     def safety_number(self):
-        security = Test(self.code).character_conversion()[-1]
-        list_cnp = Test(self.code).character_conversion()
+        security = self.character_conversion()[-1]
+        list_cnp = self.character_conversion()
         del list_cnp[-1]
         k = constant
         inmultire = []
@@ -121,29 +142,24 @@ class Test:
         s = s / 11
         s = (s - math.floor(s)) * 100
         s = math.floor(s)
-        if s <= 9:
-            """s=06 => s=6"""
-        s = int(s)
-        if s == security:
-            return "cnp valid"
-        elif s != security:
-            return "corrupt cnp"
-        elif s > 9:
+        if s >= 10:
             s = 1
-        if s == security:
-            return "cnp valid"
+            if s == security:
+                return "True"
+        elif s < 10:
+            return "True"
         elif s != security:
-            return f"corrupt cnp///{security}"
+            return "False"
 
     def output(self):
-        return (f"def check if the cnp number has 13 characters:    {self.length_check()}\n"
-                f"def gender:                                       {self.gender()}\n"
-                f"def year_of_birth:                                {self.year_of_birth()}\n"
-                f"def birth_month:                                  {self.birth_month()}\n"
-                f"def birthday:                                     {self.birthday()}\n"
-                f"def county_sector:                                {self.county_sector()}\n"
-                f"def safety_number:                                {self.safety_number()}\n"
-                f"def birth_number:                                 {self.birth_number()}")
+        return (f"Salut, ai introdus in CNP {self.character_conversion()}, hai sa-l verificam:\n"
+                f"El ne spune ca esti deci o: {self.gender()}.\n"
+                f"Mai precis nascut in data de: {self.date_birth()}.\n"
+                f"Locul tau de nastere fiind: {self.county_sector()}.\n"
+                f"Dar mai stim si ca esti al {self.birth_number()} nascut in ziua respectiva.\n"
+                f"CNP-ul tau este unul : {self.safety_number()}.")
 
 
-print(Test(a).output())
+# a = "2220802381161"
+a = "7671002255541"
+# print(Test(a).output())
